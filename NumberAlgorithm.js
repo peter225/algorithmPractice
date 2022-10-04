@@ -124,7 +124,9 @@ function arrayNUglyNumbers(n)
 
 }
 console.log(arrayNUglyNumbers(10));
-
+// my concise solution to codility's problem on the number of prime 
+// a number has. It's working fine, but it's time and space complexity can
+// improved upon.
 function printFactorofN(n)
 {
 	var factors = [];
@@ -140,6 +142,8 @@ function printFactorofN(n)
 }
 printFactorofN(483);
 //100, 1900
+// function to print the century of a year.
+// I love this beautiful solution to code signal's algorithm challenge
 function solution(year)
 {	
 	if(year<=100){
@@ -159,6 +163,8 @@ function solution(year)
 			}
 		}
  	}
-
 }
 console.log(solution(1900));
+
+
+

@@ -615,3 +615,69 @@ function sockMerchant(n, ar) {
     
 }
 console.log(sockMerchant(9,[10,20,20,10,10,30,50,10,20]))
+
+//2D array hour-glass code challenge
+
+
+//New year chaos
+Array.prototype.swap = function(a,b){
+    let init = Number(this[a])
+    this[a] = this[b]
+    this[b] = init
+}
+
+function minimumBribes(q){
+    let bribes = 0
+    for(let i=q.length-1; i>=0; i--){
+        if(q[i]==i+1)
+        {
+           continue; 
+        }
+            
+        if((i-1>=0) && (q[i-1]==i+1))
+        {
+            bribes++
+            q.swap(i,i-1)
+        }
+        else if((i-2)>=0 && (q[i-2]==i+1))
+        {
+            bribes+=2
+            q.swap(i-2,i-1)
+            q.swap(i-1,i)
+            q[i]=i+1
+        }
+        else
+        {
+            console.log('Too chaotic')
+            return
+        }
+    }
+    console.log(bribes)
+}
+
+//Minimum swaps
+/*
+7 2 1 1 1 1
+1 1 2 2 2 2
+3 3 3 3 3 3
+2 7 7 4 4 4
+4 4 4 7 5 5
+5 5 5 5 7 6
+6 6 6 6 6 7
+*/
+
+function minimumSwaps(arr){
+    let swaps = 0
+    for(let i=0; i<arr.length; i++){
+        if(arr[i]==i+1){
+            continue
+        }
+        let j=i+1
+        while(arr[j]<arr[i]){
+            arr.swap(j,i)
+            swaps++
+        }
+        
+    }
+    console.log(swaps)
+}

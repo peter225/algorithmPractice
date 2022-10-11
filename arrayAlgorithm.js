@@ -668,16 +668,35 @@ function minimumBribes(q){
 
 function minimumSwaps(arr){
     let swaps = 0
+    var min
     for(let i=0; i<arr.length; i++){
-        if(arr[i]==i+1){
-            continue
+        min = i
+        for(let j=i+1; j<=arr.length; j++){
+            
+            if(arr[j]<arr[min]){
+                min = j
+            }
         }
-        let j=i+1
-        while(arr[j]<arr[i]){
-            arr.swap(j,i)
-            swaps++
+        if(i!=min){
+            arr.swap(i,j)
+            swap++
         }
         
     }
     console.log(swaps)
+}
+
+function minimumSwaps(arr){
+    let swaps = 0
+    //var min
+    for(let i=0; i<arr.length; i++){
+      if(arr[i]!=i+1){
+          arr.swap(i, arr[i]-1)
+          i--
+          swaps++
+      }  
+        
+        
+    }
+    return swaps
 }
